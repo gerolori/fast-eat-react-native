@@ -35,6 +35,7 @@ class ViewModel {
     try {
       user = await this.storageManager.getUserAsync();
     } catch (error) {
+      console.error('Failed to retrieve user from async storage:', error);
     }
 
     if (!user) {
@@ -46,6 +47,7 @@ class ViewModel {
         await this.storageManager.saveUserAsync(finalUser);
         this.user = finalUser;
       } catch (error) {
+        console.error('Failed to save new user to async storage:', error);
       }
 
       return finalUser;
@@ -100,6 +102,7 @@ class ViewModel {
       const coords = this.getLocationCoords();
       return await CommunicationController.GetMenu(mid, sid, coords.latitude, coords.longitude);
     } catch (error) {
+      console.error(`Failed to fetch menu (mid: ${mid}):`, error);
       return null;
     }
   }
@@ -109,6 +112,7 @@ class ViewModel {
     try {
       return await CommunicationController.GetIngredients(mid, sid);
     } catch (error) {
+      console.error(`Failed to fetch ingredients (mid: ${mid}):`, error);
       return null;
     }
   }
@@ -120,6 +124,7 @@ class ViewModel {
     try {
       savedImage = await this.storageManager.getImageFromDB(mid);
     } catch (error) {
+      console.error(`Failed to retrieve cached image for menu ${mid} from database:`, error);
     }
 
     let image;
@@ -300,6 +305,7 @@ class ViewModel {
     try {
       user = await this.storageManager.getUserAsync();
     } catch (error) {
+      console.error('Failed to check for existing user during first run check:', error);
     }
     return !user;
   }

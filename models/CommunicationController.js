@@ -85,6 +85,8 @@ export default class CommunicationController {
       response = await this.genericRequest(endpoint, verb, queryParams, {});
       return response;
     } catch (error) {
+      console.error(`Failed to fetch menu ${mid}:`, error.message);
+      throw error;
     }
   }
 

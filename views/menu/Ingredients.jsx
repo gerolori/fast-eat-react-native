@@ -13,11 +13,11 @@ import { globalStyles, colors, textSizes } from "../../styles/styles";
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = React.useState(null);
-  const [menu, setMenu] = React.useState(ViewModel.lastMenu || null);
-  const [user, setUser] = React.useState(ViewModel.user || null);
 
   const initIngredients = async () => {
     await ViewModel.saveLastScreenAsync("Ingredients");
+    const menu = ViewModel.lastMenu;
+    const user = ViewModel.user;
     const ingredient = await ViewModel.getIngredients(menu.mid, user.sid);
     setIngredients(ingredient);
   };

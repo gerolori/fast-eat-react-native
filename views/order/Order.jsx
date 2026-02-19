@@ -9,7 +9,6 @@ import { colors, textSizes, globalStyles } from "../../styles/styles";
 const Order = () => {
   const navigation = useNavigation();
   const interval = useRef(null); // Interval for fetching the order
-  const [user, setUser] = useState(null);
   const userRef = useRef(null); // Ref so async callbacks always read the latest user
   const [menu, setMenu] = useState(null);
   const [order, setOrder] = useState(null);
@@ -37,7 +36,6 @@ const Order = () => {
           lastOid: updatedOrder.oid,
           orderStatus: updatedOrder.status,
         };
-        setUser(updatedUser);
         userRef.current = updatedUser;
         ViewModel.user = updatedUser;
         ViewModel.storageManager.saveUserAsync(updatedUser).catch((error) => {
@@ -57,7 +55,6 @@ const Order = () => {
     try {
       const updatedUser = await ViewModel.storageManager.getUserAsync();
       // userRef keeps the latest user value accessible in async interval callbacks
-      setUser(updatedUser);
       userRef.current = updatedUser;
       ViewModel.user = updatedUser;
       let fetchedOrder = {

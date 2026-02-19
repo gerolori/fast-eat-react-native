@@ -61,12 +61,13 @@ export default class StorageManager {
   }
   
   async getUserAsync() {
-    let user = null;
     try {
-      user = await AsyncStorage.getItem("user");
+      const user = await AsyncStorage.getItem("user");
+      return JSON.parse(user);
     } catch (error) {
+      console.error("Failed to get user from AsyncStorage:", error);
+      return null;
     }
-    return JSON.parse(user);
   }
 
   async deleteUserAsync() {

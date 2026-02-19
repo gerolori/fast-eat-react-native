@@ -168,6 +168,7 @@ const Form = ({ route }) => {
       await CommunicationController.UpdateUser(user.uid, user.sid, bodyParams);
       serverUser = await CommunicationController.getUser(user.uid, user.sid);
     } catch (error) {
+      console.error("Error updating user information:", error);
       Alert.alert("Error", "Failed to update user information");
       return;
     }
