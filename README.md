@@ -1,8 +1,14 @@
-# Fast Eat
+<div align="center">
+  <img style="max-width: 100%; max-height: 150;" alt="Fast Eat Logo" src="https://github.com/user-attachments/assets/06b824b2-0437-4f83-89b9-bf7ab3d69bac" />
+  <h1>Fast Eat</h1>
+  <p><i>React Native Client</i></p>
+</div>
 
-A React Native food ordering app built with Expo. Browse restaurant menus, place orders, and track deliveries on a live map — all from your phone.
+---
 
-> **University project** — Mobile Computing course, University of Milan (2024/25)
+Fast Eat cross-platform mobile client built with React Native and Expo 52. Originally developed as a university project for Mobile Computing course (2024/25), this repository demonstrates modern cross-platform development with React Navigation, Expo SQLite, and real-time drone delivery tracking.
+
+**Quick Navigation:** [Spring Boot Backend](https://github.com/gerolori/fast-eat-backend-springboot) • [Kotlin Android App](https://github.com/gerolori/fast-eat-kotlin) • [React Native App](https://github.com/gerolori/fast-eat-react-native) • [Architecture](https://github.com/gerolori/fast-eat-architecture) • [API Spec](https://github.com/gerolori/fast-eat-architecture/blob/main/api/openapi.yaml)
 
 ---
 
@@ -83,7 +89,7 @@ styles/
 ### Install
 
 ```bash
-git clone https://github.com/gerolori/fast-eat-rn.git
+git clone https://github.com/gerolori/fast-eat-react-native.git
 cd fast-eat-rn
 npm install
 ```
@@ -120,31 +126,31 @@ Scan the QR code with **Expo Go** to run on a physical device.
 
 ---
 
-## API
+## API Integration
 
-Base URL: redacted
+All API communication is handled by `models/CommunicationController.js` using the Fetch API.
 
-This is the university course REST API provided for the Mobile Computing exam. All requests are handled by `models/CommunicationController.js`.
+**For complete API documentation, endpoint specifications, and OpenAPI schema, see:**
+→ [Architecture Repository - API Specification](https://github.com/gerolori/fast-eat-architecture#api-specification)
+→ [OpenAPI YAML](https://github.com/gerolori/fast-eat-architecture/blob/main/api/openapi.yaml)
 
-Key endpoints (illustrative):
+### Implementation Details
 
-| Method | Path | Description |
-| --- | --- | --- |
-| `POST` | `/user` | Register a new user |
-| `GET` | `/user/:sid` | Get user profile |
-| `PUT` | `/user/:sid` | Update user profile |
-| `GET` | `/menu` | List available menus |
-| `GET` | `/menu/:mid` | Get menu detail |
-| `GET` | `/menu/:mid/ingredients` | Get ingredients for a menu |
-| `POST` | `/order` | Place an order |
-| `GET` | `/order/:oid` | Get order status |
+The `CommunicationController` manages:
+
+- JWT token handling (access + refresh tokens)
+- Request/response formatting
+- Error handling and validation
+- Base64 image decoding for menu images
+
+The original professor-provided API has been replaced with the Spring Boot backend documented in the architecture repository.
 
 ---
 
 ## Project Structure
 
 ``` bash
-fast-eat-rn/
+fast-eat-react-native/
 ├── App.js                   # Entry point; initialises ViewModel
 ├── index.js                 # Expo registerRootComponent
 ├── app.json                 # Expo config (name, slug, icons)
@@ -207,7 +213,7 @@ These sections capture notes from working through past exam exercises. Each exam
 
 Step-by-step notes for implementing the Ingredients screen feature, recorded with timing:
 
-#### Prima — Add button to menu detail & navigate to new screen
+#### First — Add button to menu detail & navigate to new screen
 
 - Add a new `TouchableOpacity` button to the menu detail screen (~12 min for correct styling)
 - Wire button to a navigation call
@@ -217,7 +223,7 @@ Step-by-step notes for implementing the Ingredients screen feature, recorded wit
 - Validate data similarly to the form fields
 - Show an alert dialog on error
 
-#### Seconda — New Ingredients screen with list
+#### Second — New Ingredients screen with list
 
 - Create a new screen titled "Ingredients of [menu name]" (~28 min: screen with navigation and header)
   - Import the new screen in `Root.jsx`
@@ -235,11 +241,11 @@ Step-by-step notes for implementing the Ingredients screen feature, recorded wit
   - Open the debugger (`j`), inspect the network response, fix errors
   - Remember to pass required parameters to the API call
 
-#### Terza — Display ingredient details (name, origin, bio, description)
+#### Third — Display ingredient details (name, origin, bio, description)
 
 - Render a list where each item shows: name, origin, bio (boolean), description (~1 h 35 min)
 
-#### Quarta — Conditional discount display
+#### Fourth — Conditional discount display
 
 - If discount applied: show text + logo
 - If discount not applied: show text + logo
@@ -249,7 +255,7 @@ Step-by-step notes for implementing the Ingredients screen feature, recorded wit
 
 ### Exam — January (Subscription & Pricing)
 
-#### Prima
+#### First
 
 - Add button to page
 - Wire button to navigation call
@@ -259,20 +265,20 @@ Step-by-step notes for implementing the Ingredients screen feature, recorded wit
 - Validate data as per form fields
 - Show dialog on error
 
-#### Seconda
+#### Second
 
 - In `CommunicationController`: duplicate the profile request, changing the URL to the correct one
 - Add the "mangione" (heavy eater) field with its value under the profile values
 - Show the "mangione" user button conditionally based on whether the user has a subscription
 
-#### Terza
+#### Third
 
 - Change the pricing logic: subtract the price directly if the user has a subscription
 - Without subscription: menus with a discount return a `missedDiscount` field
 - Log the API call
 - No UI changes required at this stage
 
-#### Quarta
+#### Fourth
 
 - If discount applied: show text + logo
 - If discount not applied: show text + logo
@@ -290,7 +296,6 @@ Step-by-step notes for implementing the Ingredients screen feature, recorded wit
 **Course:** Mobile Computing  
 **University:** Università degli Studi di Milano  
 **Academic Year:** 2024/25  
-**API Environment:** redacted
 
 ---
 
