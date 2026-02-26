@@ -1,14 +1,23 @@
+# Fast Eat - React Native Client
+
 <div align="center">
-  <img style="max-width: 100%; max-height: 150;" alt="Fast Eat Logo" src="https://github.com/user-attachments/assets/06b824b2-0437-4f83-89b9-bf7ab3d69bac" />
-  <h1>Fast Eat</h1>
-  <p><i>React Native Client</i></p>
+  <img style="max-width: 100%; max-height: 150px;" alt="Fast Eat Logo" src="https://github.com/user-attachments/assets/06b824b2-0437-4f83-89b9-bf7ab3d69bac" />
 </div>
 
 ---
 
 Fast Eat cross-platform mobile client built with React Native and Expo 52. Originally developed as a university project for Mobile Computing course (2024/25), this repository demonstrates modern cross-platform development with React Navigation, Expo SQLite, and real-time drone delivery tracking.
 
-**Quick Navigation:** [Spring Boot Backend](https://github.com/gerolori/fast-eat-backend-springboot) • [Kotlin Android App](https://github.com/gerolori/fast-eat-kotlin) • [React Native App](https://github.com/gerolori/fast-eat-react-native) • [Architecture](https://github.com/gerolori/fast-eat-architecture) • [API Spec](https://github.com/gerolori/fast-eat-architecture/blob/main/api/openapi.yaml)
+**For complete API specification, data models, and backend implementation details, see the [Architecture Repository](https://github.com/gerolori/fast-eat-architecture).**
+
+**Quick Navigation:** [Architecture & API Spec](https://github.com/gerolori/fast-eat-architecture) • [Spring Boot Backend](https://github.com/gerolori/fast-eat-backend-springboot) • [Kotlin Android App](https://github.com/gerolori/fast-eat-kotlin) • [React Native App](https://github.com/gerolori/fast-eat-react-native)
+
+---
+
+[![Expo](https://img.shields.io/badge/Expo-52-000020?logo=expo&logoColor=white)](https://expo.dev/)
+[![React Native](https://img.shields.io/badge/React%20Native-0.76-61DAFB?logo=react&logoColor=black)](https://reactnative.dev/)
+[![React Navigation](https://img.shields.io/badge/React%20Navigation-7-6B4FBB?logo=react&logoColor=white)](https://reactnavigation.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 
 ---
 
